@@ -3,8 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@types/ramda": "^0.25.18",
-    "@types/react-redux": "^5.0.15",
     "ramda": "^0.25.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
@@ -19,6 +17,8 @@
     "eject": "react-scripts-ts eject"
   },
   "devDependencies": {
+    "@types/ramda": "^0.25.18",
+    "@types/react-redux": "^5.0.15",
     "@types/enzyme": "^3.1.9",
     "@types/enzyme-adapter-react-16": "^1.0.2",
     "@types/jest": "^22.1.2",
