@@ -1,8 +1,8 @@
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
 import HelloSection from './hello-section';
+import * as enzyme from 'enzyme';
+import '../../../enzyme-config';
 
 it('renders without crashing', () => {
-  const div: HTMLDivElement = document.createElement('div');
-  ReactDOM.render(<HelloSection />, div);
+  enzyme.shallow(<HelloSection/>);
 });

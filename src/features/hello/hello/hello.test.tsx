@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as enzyme from 'enzyme';
-import '../../enzyme-config';
+import '../../../enzyme-config';
 import { HelloComponent as Hello } from './hello';
 
 it('renders the correct text when no enthusiasm level is given', () => {
