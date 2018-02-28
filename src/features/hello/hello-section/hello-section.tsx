@@ -1,10 +1,11 @@
 import * as React from 'react';
-import Hello from './features/hello/hello';
-import './app.css';
 
 const logo: string = require('./logo.svg');
 
-class App extends React.Component {
+import Hello from '../hello/hello';
+import './hello-section.css';
+
+class HelloSection extends React.Component {
   render(): JSX.Element {
     return (      
       <div className="App">
@@ -15,10 +16,10 @@ class App extends React.Component {
         <p className="App-intro">
           To get started, edit <code>src/app.tsx</code> and save to reload.
         </p>
-        <Hello name="Typescript"/>        
+        <Hello name="Typescript"/>
       </div>
     );
   }
 }
 
-export default App;
+export default HelloSection;

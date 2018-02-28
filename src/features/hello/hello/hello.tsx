@@ -1,8 +1,8 @@
 import * as React from 'react';
 import './hello.css';
-import { store } from '../../store/app-state';
-import * as enthusiasmActions from '../../store/enthusiasm/enthusiasm.actions';
-import { AppState } from '../../store/app-state';
+import { store } from '../../../store/app-state';
+import * as enthusiasmActions from '../../../store/enthusiasm/enthusiasm.actions';
+import { AppState } from '../../../store/app-state';
 import { connect } from 'react-redux';
 
 export interface StoreVars {
@@ -23,14 +23,14 @@ export class HelloComponent extends React.Component<Props, object> {
 
     return (
       <div className="hello">
-        <div className="greeting">
-          Hello {name + getExclamationMarks(enthusiasmLevel)}
+          <div className="greeting">
+            Hello {name + getExclamationMarks(enthusiasmLevel)}
+          </div>
+          <div>
+            <button onClick={onDecrement}> - </button>
+            <button onClick={onIncrement}> + </button>
+          </div>
         </div>
-        <div>
-          <button onClick={onDecrement}> - </button>
-          <button onClick={onIncrement}> + </button>
-        </div>
-      </div>
     );
   }
 }
