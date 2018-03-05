@@ -13,7 +13,7 @@ export interface Props extends StoreVars {
   name: string;  
 }
 
-export class HelloComponent extends React.Component<Props, object> {
+export class HelloComponent extends React.Component<Props> {
   public render(): JSX.Element {
     const { name, enthusiasmLevel = 1 }: Props = this.props;
 
