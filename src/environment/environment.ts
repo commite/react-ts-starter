@@ -1,5 +1,14 @@
-import { Environment } from '../models/misc/environment';
+import { environment as environmentDefault } from './environment-default';
+import { environment as environmentStaging } from './environment-staging';
+import { environment as environmentProduction } from './environment-production';
 
-export const environment: Environment = {
-  apiUrl: 'https://reqres.in/api'
+export default () => {
+  switch (process.env.REACT_APP_ENVIRONMENT) {
+    case 'staging':
+      return environmentStaging;
+    case 'production':
+      return environmentProduction;
+    default:
+      return environmentDefault;
+  }
 };
