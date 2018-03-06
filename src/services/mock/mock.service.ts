@@ -1,7 +1,10 @@
+/* tslint:disable:no-console */
+
 import { rxiosConfig, Rxios } from 'rxios';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { GetUserResponse } from '../../models/api/user.model';
+import { tap } from 'rxjs/operators';
 
 type Method = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
 interface RequestParams {
@@ -42,7 +45,9 @@ export class Mock {
   private handleRequest<T>(method: Method, params: RequestParams): Observable<T> {
     for (const index of this.index) {
       if (method === index.method && index.url.exec(params.url)) {
-        return index.handler(params);
+        return index.handler(params).pipe(
+          tap(res => console.log(`Mock ${method}`, params, 'Response', res))
+        );
       }
     }
     const rxios: Rxios = new Rxios(this.options);
