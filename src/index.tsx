@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import RootApp from './root-app';
 import registerServiceWorker from './registerServiceWorker';
-import './index.css';
+import './index.styled';
 import { Provider } from 'react-redux';
 import { store } from './store/app-state';
 import { BrowserRouter } from 'react-router-dom';
