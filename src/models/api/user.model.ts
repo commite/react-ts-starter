@@ -1,4 +1,4 @@
-export class GetUserResponse {
+export interface GetUserResponse {
   data: {
     'id': number;
     'first_name': string;
