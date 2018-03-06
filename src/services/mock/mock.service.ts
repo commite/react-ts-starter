@@ -3,20 +3,9 @@
 import { rxiosConfig, Rxios } from 'rxios';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
-import { GetUserResponse } from '../../models/api/user.model';
 import { tap } from 'rxjs/operators';
-
-type Method = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
-interface RequestParams {
-  url: string;
-  body?: object;
-  queryParams?: object;
-}
-interface HandlerIndex {
-  method: Method;
-  url: RegExp;
-  handler: Function;
-}
+import { GetUserResponse } from '../../models/api/user.model';
+import { Method, RequestParams, HandlerIndex } from '../../models/misc/mock';
 
 export class Mock {
 
