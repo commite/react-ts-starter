@@ -4,7 +4,7 @@ import httpClient from '../http-client/http-client.service';
 import { tap } from 'rxjs/operators';
 import { store } from '../../store/app-state';
 import * as userActions from '../../store/user/user.actions';
-import { User } from 'src/models/user.model';
+import { User } from '../../models/user.model';
 
 export class UserService {
 

@@ -23,9 +23,13 @@
     "build:staging": "REACT_APP_ENVIRONMENT=staging react-scripts-ts build",
     "start:production": "REACT_APP_ENVIRONMENT=production react-scripts-ts start",
     "build:production": "REACT_APP_ENVIRONMENT=production react-scripts-ts build",
+    "storybook": "start-storybook -p 9001 -c .storybook",
     "eject": "react-scripts-ts eject"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^3.3.14",
+    "@storybook/addons": "^3.3.14",
+    "@storybook/react": "^3.3.14",
     "@types/enzyme": "^3.1.9",
     "@types/enzyme-adapter-react-16": "^1.0.2",
     "@types/jest": "^22.1.2",
@@ -35,6 +39,9 @@
     "@types/react-dom": "^16.0.4",
     "@types/react-redux": "^5.0.15",
     "@types/react-router-dom": "^4.2.4",
+    "@types/storybook__react": "^3.0.7",
+    "awesome-typescript-loader": "^3.5.0",
+    "babel-core": "^6.26.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "react-addons-test-utils": "^15.6.2",

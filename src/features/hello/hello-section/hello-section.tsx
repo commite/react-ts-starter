@@ -4,8 +4,8 @@ import { UserService } from '../../../services/user/user.service';
 const logo: string = require('./logo.svg');
 
 import Hello from '../hello/hello';
-import { User } from 'src/models/user.model';
-import { AppState } from 'src/store/app-state';
+import { User } from '../../../models/user.model';
+import { AppState } from '../../../store/app-state';
 import { connect } from 'react-redux';
 import { App, Header, Logo, Title, Intro } from './hello-section.styled';
 
