@@ -3,11 +3,11 @@ import { Mock } from '../mock/mock.service';
 import env from '../../environment/environment';
 
 const httpConfig: rxiosConfig | undefined = {
-  baseURL: env().apiUrl
+  baseURL: env.apiUrl
 };
 
 function getHandler(): Rxios | Mock {
-  return env().mock ?
+  return env.mock ?
     new Mock(httpConfig) :
     new Rxios(httpConfig);
 }
