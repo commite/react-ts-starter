@@ -18,12 +18,10 @@
     "start": "react-scripts-ts start",
     "build": "react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom",
-    "start-staging": "REACT_APP_ENVIRONMENT=staging react-scripts-ts start",
-    "build-staging": "REACT_APP_ENVIRONMENT=staging react-scripts-ts build",
-    "test-staging": "REACT_APP_ENVIRONMENT=staging react-scripts-ts test --env=jsdom",
-    "start-production": "REACT_APP_ENVIRONMENT=production react-scripts-ts start",
-    "build-production": "REACT_APP_ENVIRONMENT=production react-scripts-ts build",
-    "test-production": "REACT_APP_ENVIRONMENT=production react-scripts-ts test --env=jsdom",
+    "start:staging": "REACT_APP_ENVIRONMENT=staging react-scripts-ts start",
+    "build:staging": "REACT_APP_ENVIRONMENT=staging react-scripts-ts build",
+    "start:production": "REACT_APP_ENVIRONMENT=production react-scripts-ts start",
+    "build:production": "REACT_APP_ENVIRONMENT=production react-scripts-ts build",
     "eject": "react-scripts-ts eject"
   },
   "devDependencies": {
