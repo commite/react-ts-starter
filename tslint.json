@@ -44,6 +44,7 @@
         "no-any": true,
         "no-arg": true,
         "no-bitwise": true,
+        "no-inferrable-types": [true, "ignore-params", "ignore-properties"],
         "no-console": [
             true,
             "log",
@@ -88,7 +89,6 @@
             "parameter",
             "property-declaration",
             "call-signature",
-            "variable-declaration",
             "member-variable-declaration",
             "object-destructuring",
             "array-destructuring"

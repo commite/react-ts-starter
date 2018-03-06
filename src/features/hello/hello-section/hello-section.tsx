@@ -8,6 +8,7 @@ import './hello-section.css';
 import { User } from 'src/models/user.model';
 import { AppState } from 'src/store/app-state';
 import { connect } from 'react-redux';
+import { App, Header, Logo, Title, Intro } from './hello-section.styled';
 
 export interface StoreVars {
   user: User | null;
@@ -16,8 +17,8 @@ export interface Props extends StoreVars {}
 
 class HelloSection extends React.Component<Props> {
   componentDidMount(): void {
-    const userService: UserService = new UserService(),
-          userId: number = 1;
+    const userService = new UserService(),
+          userId = 1;
 
     userService.getUser(userId).subscribe();
   }
@@ -25,16 +26,16 @@ class HelloSection extends React.Component<Props> {
     const { user = null }: Props = this.props;
 
     return (      
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
+      <App>
+        <Header>
+          <Logo src={logo} alt="logo" />
+          <Title>Welcome to React</Title>
+        </Header>
+        <Intro>
           To get started, edit <code>src/app.tsx</code> and save to reload.
-        </p>
+        </Intro>
         <Hello name={user ? user.firstName : ''}/>
-      </div>
+      </App>
     );
   }
 }

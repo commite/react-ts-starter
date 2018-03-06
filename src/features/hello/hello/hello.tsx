@@ -1,9 +1,9 @@
 import * as React from 'react';
-import './hello.css';
 import { store } from '../../../store/app-state';
 import * as enthusiasmActions from '../../../store/enthusiasm/enthusiasm.actions';
 import { AppState } from '../../../store/app-state';
 import { connect } from 'react-redux';
+import { Hello } from './hello.styled';
 
 export interface StoreVars {
   enthusiasmLevel?: number;
@@ -22,15 +22,15 @@ export class HelloComponent extends React.Component<Props> {
     }
 
     return (
-      <div className="hello">
-          <div className="greeting">
-            Hello {name + getExclamationMarks(enthusiasmLevel)}
-          </div>
-          <div>
-            <button onClick={onDecrement}> - </button>
-            <button onClick={onIncrement}> + </button>
-          </div>
+      <Hello>
+        <div className="greeting">
+          Hello {name + getExclamationMarks(enthusiasmLevel)}
         </div>
+        <div>
+          <button onClick={onDecrement}> - </button>
+          <button onClick={onIncrement}> + </button>
+        </div>
+      </Hello>
     );
   }
 }

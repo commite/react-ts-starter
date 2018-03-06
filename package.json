@@ -12,7 +12,8 @@
     "react-scripts-ts": "2.13.0",
     "redux": "^3.7.2",
     "rxios": "^1.1.2",
-    "rxjs": "^5.5.6"
+    "rxjs": "^5.5.6",
+    "styled-components": "^3.2.0"
   },
   "scripts": {
     "start": "react-scripts-ts start",

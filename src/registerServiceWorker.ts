@@ -9,7 +9,7 @@
 // To learn more about the benefits of this model, read https://goo.gl/KwvDNy.
 // This link also includes instructions on opting out of this behavior.
 
-const isLocalhost: boolean = Boolean(
+const isLocalhost = Boolean(
   window.location.hostname === 'localhost' ||
     // [::1] is the IPv6 localhost address.
     window.location.hostname === '[::1]' ||
@@ -34,7 +34,7 @@ export default function register(): void {
     }
 
     window.addEventListener('load', () => {
-      const swUrl: string = `${process.env.PUBLIC_URL}/service-worker.js`;
+      const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
 
       if (!isLocalhost) {
         // Is not local host. Just register service worker
@@ -82,7 +82,7 @@ function checkValidServiceWorker(swUrl: string): void {
   // Check if the service worker can be found. If it can't reload the page.
   fetch(swUrl)
     .then(response => {
-      const notFound: number = 404;
+      const notFound = 404;
       // Ensure service worker exists, and that we really are getting a JS file.
       if (
         response.status === notFound ||
