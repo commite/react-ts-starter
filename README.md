@@ -71,7 +71,11 @@ For styling can use [Styled Components](https://www.styled-components.com/) or n
 
 ## Storybook
 
-For UI Development [Storybook](https://storybook.js.org/) is used, by default all `*.story.tsx` files of `src/features` folder and subfolders are added to global stories.
+For UI Development [Storybook](https://storybook.js.org/) is used, by default all `*.story.tsx` files of `src/features` folder and subfolders are added to global stories. Start on `http://localhost:9001/` with:
+
+```bash
+yarn storybook
+```
 
 ## HMR
 
