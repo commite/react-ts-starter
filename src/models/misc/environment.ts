@@ -1,6 +1,6 @@
 export class Environment {
-  public apiUrl: string;
-  public mock: boolean;
+  apiUrl: string;
+  mock: boolean;
 
   constructor(environment: Environment) {
     this.apiUrl = environment.apiUrl;

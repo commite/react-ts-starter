@@ -14,7 +14,7 @@ export interface Props extends StoreVars {
 }
 
 export class HelloComponent extends React.Component<Props> {
-  public render(): JSX.Element {
+  render(): JSX.Element {
     const { name, enthusiasmLevel = 1 }: Props = this.props;
 
     if (enthusiasmLevel <= 0) {
