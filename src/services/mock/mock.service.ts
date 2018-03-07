@@ -1,19 +1,14 @@
-/* tslint:disable:no-console */
-
 import { rxiosConfig, Rxios } from 'rxios';
 import { Observable } from 'rxjs/Observable';
-import { of } from 'rxjs/observable/of';
-import { tap } from 'rxjs/operators';
-import { GetUserResponse } from '../../models/api/user.model';
-import { Method, RequestParams, HandlerIndex } from '../../models/misc/mock';
+import { Method, RequestParams } from '../../models/misc/mock';
+import { MockHandlers } from './mock.handlers';
 
 export class Mock {
 
-  private index: HandlerIndex[] = [
-    { method: 'GET', url: /^\/users\/[^\/]+/, handler: this.getUser }
-  ];
-
-  constructor(private options?: rxiosConfig) {}
+  private handlers: MockHandlers;
+  constructor(private options?: rxiosConfig) {
+    this.handlers = new MockHandlers();
+  }
 
   get<T>(url: string, queryParams?: object): Observable<T> {
     return this.handleRequest('GET', {url: url, queryParams: queryParams});
@@ -32,32 +27,19 @@ export class Mock {
   }
 
   private handleRequest<T>(method: Method, params: RequestParams): Observable<T> {
-    for (const index of this.index) {
-      if (method === index.method && index.url.exec(params.url)) {
-        return index.handler(params).pipe(
-          tap(res => console.log(`Mock ${method}`, params, 'Response', res))
-        );
-      }
-    }
-    const rxios: Rxios = new Rxios(this.options);
-    switch (method) {
-      case 'DELETE':
-      case 'GET':
-        return rxios[method.toLowerCase()](params.url, params.queryParams);  
-      default:
-        return rxios[method.toLowerCase()](params.url, params.body, params.queryParams);
-    }
-  }
+    const mockResponse: Observable<T> | null = this.handlers.handle(method, params);
 
-  private getUser(params: RequestParams): Observable<GetUserResponse> {
-    return of({
-        data: {
-          'id': 0,
-          'first_name': 'Mock',
-          'last_name': 'Mocked',
-          'avatar': ''
-        }
+    if (mockResponse) {
+      return mockResponse;
+    } else {
+      const rxios: Rxios = new Rxios(this.options);
+      switch (method) {
+        case 'DELETE':
+        case 'GET':
+          return rxios[method.toLowerCase()](params.url, params.queryParams);  
+        default:
+          return rxios[method.toLowerCase()](params.url, params.body, params.queryParams);
       }
-    );
+    }    
   }
 }
