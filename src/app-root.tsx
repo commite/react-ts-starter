@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 import HelloSection from './features/hello/hello-section/hello-section';
 
-class RootApp extends React.Component {
+class AppRoot extends React.Component {
   render(): JSX.Element {
     return (     
       <Provider store={store}>
@@ -20,4 +20,4 @@ class RootApp extends React.Component {
   }
 }
 
-export default RootApp;
+export default AppRoot;

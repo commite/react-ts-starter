@@ -1,17 +1,17 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import RootApp from './root-app';
+import AppRoot from './app-root';
 import registerServiceWorker from './registerServiceWorker';
 import './index.styled';
 
 ReactDOM.render(
-  <RootApp/>,
+  <AppRoot/>,
   document.getElementById('root') as HTMLElement
 );
 
 if (module.hot) {
-  module.hot.accept('./root-app', () => {
-    const NextApp = require('./root-app').default;
+  module.hot.accept('./app-root', () => {
+    const NextApp = require('./app-root').default;
     ReactDOM.render(
       <NextApp />,
       document.getElementById('root') as HTMLElement
