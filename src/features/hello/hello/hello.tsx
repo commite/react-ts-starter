@@ -27,8 +27,8 @@ export class HelloComponent extends React.Component<Props> {
           Hello {name + getExclamationMarks(enthusiasmLevel)}
         </div>
         <div>
-          <button onClick={onDecrement}> - </button>
-          <button onClick={onIncrement}> + </button>
+          <button onClick={onDecrement} id="decrement-button"> - </button>
+          <button onClick={onIncrement} id="increment-button"> + </button>
         </div>
       </Hello>
     );
