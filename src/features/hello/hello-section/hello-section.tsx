@@ -5,7 +5,7 @@ const logo: string = require('./logo.svg');
 
 import Hello from '../hello/hello';
 import { User } from '../../../models/user.model';
-import { AppState } from '../../../store/app-state';
+import { AppState } from '../../../models/misc/app-state';
 import { connect } from 'react-redux';
 import { App, Header, Logo, Title, Intro } from './hello-section.styled';
 

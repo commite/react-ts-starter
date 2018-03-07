@@ -1,19 +1,11 @@
 import { createStore, Store, combineReducers, Reducer } from 'redux';
-import { enthusiasm } from './enthusiasm/enthusiasm.reducers';
-import { user } from './user/user.reducers';
-import { User } from 'src/models/user.model';
-
-export interface AppState {
-  enthusiasmLevel: number;
-  user: User | null;
-}
+import { AppState } from '../models/misc/app-state';
+import { reducer as enthusiasmReducer } from './enthusiasm';
+import { reducer as userReducer } from './user';
 
 const reducers: Reducer<AppState> = combineReducers({
-  enthusiasmLevel: enthusiasm,
-  user: user
+  enthusiasmLevel: enthusiasmReducer,
+  user: userReducer
 });
 
-export const store: Store<AppState> = createStore<AppState>( reducers, {
-  enthusiasmLevel: 1,
-  user: null
-});
+export const store: Store<AppState> = createStore<AppState>(reducers);

@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { store } from '../../../store/app-state';
-import * as enthusiasmActions from '../../../store/enthusiasm/enthusiasm.actions';
-import { AppState } from '../../../store/app-state';
+import { AppState } from '../../../models/misc/app-state';
 import { connect } from 'react-redux';
 import { Hello } from './hello.styled';
+import * as enthusiasmStore from '../../../store/enthusiasm';
 
 export interface StoreVars {
   enthusiasmLevel?: number;
@@ -40,11 +40,11 @@ function getExclamationMarks(numChars: number): string {
 }
 
 function onIncrement(): void {
-  store.dispatch(enthusiasmActions.incrementEnthusiasm());
+  store.dispatch(enthusiasmStore.increment());
 }
 
 function onDecrement(): void {
-  store.dispatch(enthusiasmActions.decrementEnthusiasm());
+  store.dispatch(enthusiasmStore.decrement());
 }
 
 export function mapStateToProps(state: AppState): StoreVars {

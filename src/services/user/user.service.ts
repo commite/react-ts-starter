@@ -3,8 +3,8 @@ import { Observable } from 'rxjs/Observable';
 import httpClient from '../http-client/http-client.service';
 import { tap } from 'rxjs/operators';
 import { store } from '../../store/app-state';
-import * as userActions from '../../store/user/user.actions';
 import { User } from '../../models/user.model';
+import * as userStore from '../../store/user';
 
 export class UserService {
 
@@ -18,7 +18,7 @@ export class UserService {
           avatar: res.data.avatar
         });
 
-        store.dispatch(userActions.set(newUser));
+        store.dispatch(userStore.set(newUser));
       })
     );
   }
