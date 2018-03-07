@@ -3,16 +3,20 @@ import * as ReactDOM from 'react-dom';
 import RootApp from './root-app';
 import registerServiceWorker from './registerServiceWorker';
 import './index.styled';
-import { Provider } from 'react-redux';
-import { store } from './store/app-state';
-import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.render(
-  <Provider store={store}>
-    <BrowserRouter>
-      <RootApp/>
-    </BrowserRouter>
-  </Provider>,
+  <RootApp/>,
   document.getElementById('root') as HTMLElement
 );
+
+if (module.hot) {
+  module.hot.accept('./root-app', () => {
+    const NextApp = require('./root-app').default;
+    ReactDOM.render(
+      <NextApp />,
+      document.getElementById('root') as HTMLElement
+    );
+  });
+}
+
 registerServiceWorker();
