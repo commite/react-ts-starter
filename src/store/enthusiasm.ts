@@ -2,8 +2,8 @@ import { createAction, createReducer } from 'redux-act';
 
 const defaultState = 1;
       
-export const increment = createAction('[Enthusiasm] Increment'),
-             decrement = createAction('[Enthusiasm] Decrement'),
+export const increment = createAction('[ENTHUSIASM] Increment'),
+             decrement = createAction('[ENTHUSIASM] Decrement'),
              reducer =
               createReducer<number>(on => {
                 on(increment, state => state + 1);
