@@ -8,6 +8,8 @@ import { User } from '../../../models/user.model';
 import { AppState } from '../../../models/misc/app-state';
 import { connect } from 'react-redux';
 import { App, Header, Logo, Title, Intro } from './hello-section.styled';
+import { store } from '../../../store/app-state';
+import * as enthusiasmStore from '../../../store/enthusiasm';
 
 export interface StoreVars {
   user: User | null;
@@ -33,11 +35,24 @@ class HelloSection extends React.Component<Props> {
         <Intro>
           To get started, edit <code>src/app.tsx</code> and save to reload.
         </Intro>
-        <Hello name={user ? user.firstName : ''}/>
+        <Hello
+          name={user ? user.firstName : ''}
+          onIncrementClick={onHelloIncrement}
+          onDecrementClick={onHelloDecrement} 
+        />
       </App>
     );
   }
 }
+
+function onHelloIncrement(): void {
+  store.dispatch(enthusiasmStore.increment());
+}
+
+function onHelloDecrement(): void {
+  store.dispatch(enthusiasmStore.decrement());
+}
+
 export function mapStateToProps(state: AppState): StoreVars {
   return {
     user: state.user
