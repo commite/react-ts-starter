@@ -1,5 +1,5 @@
 import * as React from 'react';
-import HelloSection from './hello-section';
+import { HelloSection } from './hello-section';
 import * as enzyme from 'enzyme';
 import '../../../enzyme-config';
 

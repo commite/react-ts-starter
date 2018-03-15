@@ -3,11 +3,11 @@ import { UserService } from '../../../services/user/user.service';
 
 const logo: string = require('./logo.svg');
 
-import Hello from '../hello/hello';
+import { Hello } from '../hello/hello';
 import { User } from '../../../models/user.model';
 import { AppState } from '../../../models/misc/app-state';
 import { connect } from 'react-redux';
-import { App, Header, Logo, Title, Intro } from './hello-section.styled';
+import { Grid, Header, Logo, Title, Intro } from './hello-section.styled';
 import { store } from '../../../store/app-state';
 import * as enthusiasmStore from '../../../store/enthusiasm';
 
@@ -16,7 +16,7 @@ export interface StoreVars {
 }
 export interface Props extends StoreVars {}
 
-class HelloSection extends React.Component<Props> {
+class HelloSectionComponent extends React.Component<Props> {
   componentDidMount(): void {
     const userService = new UserService(),
           userId = 1;
@@ -27,7 +27,7 @@ class HelloSection extends React.Component<Props> {
     const { user = null }: Props = this.props;
 
     return (      
-      <App>
+      <Grid>
         <Header>
           <Logo src={logo} alt="logo" />
           <Title>Welcome to React</Title>
@@ -37,26 +37,26 @@ class HelloSection extends React.Component<Props> {
         </Intro>
         <Hello
           name={user ? user.firstName : ''}
-          onIncrementClick={onHelloIncrement}
-          onDecrementClick={onHelloDecrement} 
+          onIncrementClick={this.onHelloIncrement}
+          onDecrementClick={this.onHelloDecrement} 
         />
-      </App>
+      </Grid>
     );
+  }
+
+  onHelloIncrement(): void {
+    store.dispatch(enthusiasmStore.increment());
+  }
+  
+  onHelloDecrement(): void {
+    store.dispatch(enthusiasmStore.decrement());
   }
 }
 
-function onHelloIncrement(): void {
-  store.dispatch(enthusiasmStore.increment());
-}
-
-function onHelloDecrement(): void {
-  store.dispatch(enthusiasmStore.decrement());
-}
-
-export function mapStateToProps(state: AppState): StoreVars {
+function mapStateToProps(state: AppState): StoreVars {
   return {
     user: state.user
   };
 }
 
-export default connect(mapStateToProps)(HelloSection);
+export const HelloSection = connect(mapStateToProps)(HelloSectionComponent);

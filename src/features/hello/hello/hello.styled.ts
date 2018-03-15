@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Hello = styled.div`
+export const Grid = styled.div`
   text-align: center;
   margin: 20px;
   font-size: 48px;

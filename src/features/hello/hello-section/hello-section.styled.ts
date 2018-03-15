@@ -6,7 +6,7 @@ const rotate360 = keyframes`
   to { transform: rotate(360deg); }
  `;
 
-export const App = styled.div`
+export const Grid = styled.div`
   text-align: center;
 `;
 

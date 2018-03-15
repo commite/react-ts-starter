@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { AppState } from '../../../models/misc/app-state';
 import { connect } from 'react-redux';
-import { Hello } from './hello.styled';
-export interface StoreVars {
+import { Grid } from './hello.styled';
+
+interface StoreVars {
   enthusiasmLevel?: number;
 }
-
-export interface Props extends StoreVars {
+interface Props extends StoreVars {
   name: string;
   onIncrementClick: () => void;
   onDecrementClick: () => void;
@@ -21,27 +21,27 @@ export class HelloComponent extends React.Component<Props> {
     }
 
     return (
-      <Hello>
+      <Grid>
         <div className="greeting">
-          Hello {name + getExclamationMarks(enthusiasmLevel)}
+          Hello {name + this.getExclamationMarks(enthusiasmLevel)}
         </div>
         <div>
           <button onClick={onDecrementClick} id="decrement-button"> - </button>
           <button onClick={onIncrementClick} id="increment-button"> + </button>
         </div>
-      </Hello>
+      </Grid>
     );
+  }
+
+  getExclamationMarks(numChars: number): string {
+    return Array(numChars + 1).join('!');
   }
 }
 
-function getExclamationMarks(numChars: number): string {
-  return Array(numChars + 1).join('!');
-}
-
-export function mapStateToProps(state: AppState): StoreVars {
+function mapStateToProps(state: AppState): StoreVars {
   return {
     enthusiasmLevel: state.enthusiasmLevel
   };
 }
 
-export default connect(mapStateToProps)(HelloComponent);
+export const Hello = connect(mapStateToProps)(HelloComponent);

@@ -7255,6 +7255,10 @@ react-modal@^3.1.10:
     prop-types "^15.5.10"
     warning "^3.0.0"
 
+react-reactive-form@^1.0.20:
+  version "1.0.20"
+  resolved "https://registry.yarnpkg.com/react-reactive-form/-/react-reactive-form-1.0.20.tgz#5377dfe94a395633cfd0fabd01b989ec36ffedd0"
+
 react-reconciler@^0.7.0:
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/react-reconciler/-/react-reconciler-0.7.0.tgz#9614894103e5f138deeeb5eabaf3ee80eb1d026d"

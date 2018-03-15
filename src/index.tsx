@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import AppRoot from './app-root';
+import { AppRoot } from './app-root';
 import registerServiceWorker from './registerServiceWorker';
 import './index.styled';
 
