@@ -22,6 +22,11 @@ export const InputContainer = styled.div`
   }
 `;
 
+export const InputError = styled.div`
+  color: red;
+  font-size: .9rem;
+`;
+
 export const Form = styled.form`
   display: flex;
   flex-flow: column nowrap;

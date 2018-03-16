@@ -17,11 +17,12 @@ export interface StoreVars {
 export interface Props extends StoreVars {}
 
 class HelloSectionComponent extends React.Component<Props> {
-  componentDidMount(): void {
-    const userService = new UserService(),
-          userId = 1;
+  private userService: UserService = new UserService();
 
-    userService.getUser(userId).subscribe();
+  componentDidMount(): void {
+    const userId = 1;
+
+    this.userService.getUser(userId).subscribe();
   }
   render(): JSX.Element {
     const { user = null }: Props = this.props;
@@ -44,11 +45,11 @@ class HelloSectionComponent extends React.Component<Props> {
     );
   }
 
-  onHelloIncrement(): void {
+  onHelloIncrement = (): void => {
     store.dispatch(enthusiasmStore.increment());
   }
   
-  onHelloDecrement(): void {
+  onHelloDecrement = (): void => {
     store.dispatch(enthusiasmStore.decrement());
   }
 }

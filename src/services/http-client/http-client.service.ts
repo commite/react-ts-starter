@@ -17,4 +17,4 @@ function getHandler(): Rxios | Mock {
   return client;
 }
 
-export default getHandler();
+export const HttpClient = getHandler();

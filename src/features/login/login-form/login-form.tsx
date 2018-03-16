@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { Grid, Form, InputContainer, Button, Label } from './login-form.styled';
+import { Grid, Form, InputContainer, Button, Label, InputError } from './login-form.styled';
+import { LoginBody } from '../../../models/api/auth.model';
 import { FormBuilder, FormGroup, FieldGroup, FieldControl, Validators } from 'react-reactive-form';
 
 export interface FormValues {
@@ -7,7 +8,11 @@ export interface FormValues {
   password: string;
 }
 
-export class LoginFormComponent extends React.Component {
+interface Props {
+  onFormSubmit: (body: LoginBody) => void;
+}
+
+export class LoginFormComponent extends React.Component<Props> {
 
   private loginForm: FormGroup = FormBuilder.group({
     email: ['', Validators.required],
@@ -22,21 +27,21 @@ export class LoginFormComponent extends React.Component {
           <Form id="login-form" onSubmit={e => this.onSubmit(e)}>            
             <FieldControl
               name="email"
-              render={({handler, touched, hasError}) => (
+              render={({handler, touched, hasError, submitted}) => (
                 <InputContainer>
                   <Label htmlFor="email">Email</Label>
                   <input {...handler()} id="email" type="text"/>
-                  <span> {touched && hasError('required') && 'Email is required'} </span>
+                  <InputError> {(submitted || touched) && hasError('required') && 'Email is required'} </InputError>
                 </InputContainer>
               )}
             />
             <FieldControl
               name="password"
-              render={({handler, touched, hasError}) => (
+              render={({handler, touched, hasError, submitted}) => (
                 <InputContainer>
                   <Label htmlFor="password">Password</Label>
                   <input {...handler()} id="password" type="password"/>
-                  <span> {touched && hasError('required') && 'Email is required'} </span>
+                  <InputError> {(submitted || touched) && hasError('required') && 'Password is required'} </InputError>
                 </InputContainer>
               )}
             />            
@@ -47,10 +52,11 @@ export class LoginFormComponent extends React.Component {
     </Grid>
   ); }
 
-  onSubmit (event: React.FormEvent<HTMLFormElement>): void {
+  onSubmit =  (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
+    this.loginForm.markAsSubmitted();
     if (this.loginForm.valid) {
-      alert(JSON.stringify(this.loginForm.value));
+      this.props.onFormSubmit(this.loginForm.value);
     }
   }
 }
