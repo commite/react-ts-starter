@@ -14,13 +14,13 @@ export class Mock {
     return this.handleRequest('GET', {url: url, queryParams: queryParams});
   }
   post<T>(url: string, body: object, queryParams?: object): Observable<T> {
-    return this.handleRequest('POST', {url: url, queryParams: queryParams});
+    return this.handleRequest('POST', {url: url, body: body, queryParams: queryParams});
   }
   put<T>(url: string, body: object, queryParams?: object): Observable<T> {
     return this.handleRequest('PUT', {url: url, body: body, queryParams: queryParams});
   }
   patch<T>(url: string, body: object, queryParams?: object): Observable<T> {
-    return this.handleRequest('PATCH', {url: url, queryParams: queryParams});
+    return this.handleRequest('PATCH', {url: url, body: body, queryParams: queryParams});
   }
   delete(url: string, queryParams?: object): Observable<{}> {
     return this.handleRequest('DELETE', {url: url, queryParams: queryParams});
