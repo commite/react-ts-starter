@@ -18,6 +18,7 @@ yarn install
 * [RxJS Http Client](#http-client) (wrapper for [Rxios](https://github.com/davguij/rxios))
 * [Backendless mock](#mock)
 * [Styled Components](#styled-components)
+* [Reactive Forms](#reactive-forms)
 * [Storybook](#storybook)
 * [HMR](#hmr)
 * [Project Structure](#project-structure)
@@ -68,6 +69,10 @@ When `mock` environment value equals true (only on `default` environment now) al
 ## Styled Components
 
 For styling can use [Styled Components](https://www.styled-components.com/) or native css.
+
+## Reactive Forms
+
+For forms management and validation can use [Reactive Forms](https://github.com/bietkul/react-reactive-form).
 
 ## Storybook
 
